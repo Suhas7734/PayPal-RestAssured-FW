@@ -27,7 +27,7 @@ public final class ExtentReport {
 
     public static void initReports(){
         extentReports = new ExtentReports();
-        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("index.html");
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("test-output/index.html");
         extentReports.attachReporter(sparkReporter);
         sparkReporter.config().setTheme(Theme.STANDARD);
         sparkReporter.config().setDocumentTitle("PayPal API Test Reports");
