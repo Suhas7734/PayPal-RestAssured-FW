@@ -40,3 +40,4 @@ build/
 /.idea/.gitignore
 /logs/test.log
 *.properties
+/index.html
