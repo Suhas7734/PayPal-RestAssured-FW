@@ -36,7 +36,19 @@ jobs:
       uses: actions/upload-artifact@v4.6.2
       with:
         name: Logs
-        path: logs/      
+        path: logs/
+
+    - name: Upload Extent Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: ExtentReport
+        path: test-output/ExtentReport.html
+
+    - name: Move ExtentReport to docs
+      run: |
+        mkdir -p docs
+        cp test-output/ExtentReport.html docs/
+
 
     - name: Publish Test Report
       if: always()
