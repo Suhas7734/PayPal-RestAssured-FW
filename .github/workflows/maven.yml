@@ -28,6 +28,9 @@ jobs:
         cache: maven
     - name: Execute Test
       run: mvn clean test -Dsuite=testng -Denv=qa -X
+      env:
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.6.2
