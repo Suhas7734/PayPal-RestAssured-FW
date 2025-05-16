@@ -44,11 +44,6 @@ jobs:
         name: ExtentReport
         path: test-output/index.html
 
-    - name: Move ExtentReport to docs
-      run: |
-        mkdir -p docs
-        cp test-output/index.html docs/
-
 
     - name: Publish Test Report
       if: always()
