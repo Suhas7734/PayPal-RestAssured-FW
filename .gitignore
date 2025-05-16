@@ -39,3 +39,4 @@ build/
 .DS_Store
 /.idea/.gitignore
 /logs/test.log
+*.properties
