@@ -20,4 +20,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Execute Test
-      run: $mvn clean test -Dsuite=testng -Denv=qa -X
+      run: mvn clean test -Dsuite=testng -Denv=qa -X
