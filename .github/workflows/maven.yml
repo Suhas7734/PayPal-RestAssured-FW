@@ -47,7 +47,7 @@ jobs:
     - name: Move ExtentReport to docs
       run: |
         mkdir -p docs
-        cp test-output/ExtentReport.html docs/
+        cp test-output/index.html docs/
 
 
     - name: Publish Test Report
