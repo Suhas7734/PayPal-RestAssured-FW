@@ -25,7 +25,15 @@ public class LoggingFilter implements Filter {
 
     public void logRequest(FilterableRequestSpecification requestSpec) {
         logger.info("BASE_URI: " + requestSpec.getBaseUri());
-        logger.info("Request Header: " + requestSpec.getHeaders());
+        StringBuilder maskedHeaders = new StringBuilder();
+        requestSpec.getHeaders().asList().forEach(header -> {
+            if (header.getName().equalsIgnoreCase("Authorization")) {
+                maskedHeaders.append("Authorization: ****\n");
+            } else {
+                maskedHeaders.append(header.getName()).append(": ").append(header.getValue()).append("\n");
+            }
+        });
+        logger.info("Request Header: " + maskedHeaders.toString().trim());
         logger.info("Request Payload: " + requestSpec.getBody());
     }
 
