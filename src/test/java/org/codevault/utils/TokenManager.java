@@ -35,8 +35,16 @@ public class TokenManager {
 
     private static Response generateToken() {
 
-        String clientId = "AbpCpfRvmK2aUabDl-pi65je7IalWU0_1H_NHmbi9zH9ysaszTp7IzpmN8f__8pQ8QPK2RfbrYD5F6Fx";
-        String clientSecret = "EMBpCZVrT_GxxG2PjaMyf5uv3dblUYGadklWC9YAmqhREUuB5C1uYbEF2i3YI-h9Yx_2_lgJOLugANPt";
+        String clientId = System.getenv("CLIENT_ID");
+        String clientSecret = System.getenv("CLIENT_SECRET");
+
+        // If env vars are missing, fallback to config file
+        if (clientId == null || clientId.isEmpty()) {
+            clientId = DataLoader.getInstance().getClientId();
+        }
+        if (clientSecret == null || clientSecret.isEmpty()) {
+            clientSecret = DataLoader.getInstance().getClientSecret();
+        }
 
 
         Map<String, String> formParams = new HashMap<>();
